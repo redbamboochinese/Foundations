@@ -148,6 +148,12 @@
     <table id="pinyin-table"></table>
   </div>
 
+  <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; background: #fafaf9; border: 0.5px solid #D3D1C7; border-radius: 6px;">
+    <p style="font-size: 12px; color: #888780; line-height: 1.7; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">
+      <span style="font-weight: 500; color: #444441;">Note:</span> Some rare syllables are omitted from this chart because beginners don't really need them, but if you're curious they're listed here for reference: <span style="color: #444441;">biang, duang, liǎ, sēng, shéi, zéi</span>
+    </p>
+  </div>
+
   <div class="branding">
     <p>Red Bamboo Chinese &nbsp;·&nbsp; 红竹中文</p>
     <p class="source">Data source: Standard Pinyin</p>
@@ -169,7 +175,7 @@
   // Each row: [initial_label, ...cells matching finals order]
   // '' = empty cell
   const rows = [
-    ['—',  'a','ai','ao','an','ang',  'e','ei','en','eng','er',  'o','ou','ong',  'yi','',  'ya','yao','ye','you','yan','yang','yin','ying','yong',  'wu','wa','wai','wei','wo','wan','wang','wen','weng',  'yu','yue','yuan','yun'],
+    ['ø-',  'a','ai','ao','an','ang',  'e','ei','en','eng','er',  'o','ou','',  'yi','',  'ya','yao','ye','you','yan','yang','yin','ying','yong',  'wu','wa','wai','wei','wo','wan','wang','wen','weng',  'yu','yue','yuan','yun'],
     ['b-', 'ba','bai','bao','ban','bang',  '','bei','ben','beng','',  'bo','','',  'bi','',  '','biao','bie','','bian','','bin','bing','',  'bu','','','','','','','','',  '','','',''],
     ['p-', 'pa','pai','pao','pan','pang',  '','pei','pen','peng','',  'po','pou','',  'pi','',  '','piao','pie','','pian','','pin','ping','',  'pu','','','','','','','','',  '','','',''],
     ['m-', 'ma','mai','mao','man','mang',  'me','mei','men','meng','',  'mo','mou','',  'mi','',  '','miao','mie','miu','mian','','min','ming','',  'mu','','','','','','','','',  '','','',''],
@@ -178,13 +184,13 @@
     ['t-', 'ta','tai','tao','tan','tang',  'te','','','teng','',  '','tou','tong',  'ti','',  '','tiao','tie','','tian','','','ting','',  'tu','','','tui','tuo','tuan','','tun','',  '','','',''],
     ['n-', 'na','nai','nao','nan','nang',  'ne','nei','nen','neng','',  '','nou','nong',  'ni','',  '','niao','nie','niu','nian','niang','nin','ning','',  'nu','','','','nuo','nuan','','','',  'nü','nüe','',''],
     ['l-', 'la','lai','lao','lan','lang',  'le','lei','','leng','',  'lo','lou','long',  'li','',  'lia','liao','lie','liu','lian','liang','lin','ling','',  'lu','','','','luo','luan','','lun','',  'lü','lüe','',''],
-    ['z-', 'za','zai','zao','zan','zang',  'ze','zei','zen','zeng','',  '','zou','zong',  'zi','',  '','','','','','','','','',  'zu','','','zui','zuo','zuan','','zun','',  '','','',''],
-    ['c-', 'ca','cai','cao','can','cang',  'ce','','cen','ceng','',  '','cou','cong',  'ci','',  '','','','','','','','','',  'cu','','','cui','cuo','cuan','','cun','',  '','','',''],
-    ['s-', 'sa','sai','sao','san','sang',  'se','','sen','seng','',  '','sou','song',  'si','',  '','','','','','','','','',  'su','','','sui','suo','suan','','sun','',  '','','',''],
-    ['zh-','zha','zhai','zhao','zhan','zhang',  'zhe','zhei','zhen','zheng','',  '','zhou','zhong',  'zhi','',  '','','','','','','','','',  'zhu','zhua','zhuai','zhui','zhuo','zhuan','zhuang','zhun','',  '','','',''],
-    ['ch-','cha','chai','chao','chan','chang',  'che','','chen','cheng','',  '','chou','chong',  'chi','',  '','','','','','','','','',  'chu','chua','chuai','chui','chuo','chuan','chuang','chun','',  '','','',''],
-    ['sh-','sha','shai','shao','shan','shang',  'she','shei','shen','sheng','',  '','shou','',  'shi','',  '','','','','','','','','',  'shu','shua','shuai','shui','shuo','shuan','shuang','shun','',  '','','',''],
-    ['r-', '','','rao','ran','rang',  're','','ren','reng','',  '','rou','rong',  'ri','',  '','','','','','','','','',  'ru','rua','','rui','ruo','ruan','','run','',  '','','',''],
+    ['z-', 'za','zai','zao','zan','zang',  'ze','zei','zen','zeng','',  '','zou','zong',  '','zi',  '','','','','','','','','',  'zu','','','zui','zuo','zuan','','zun','',  '','','',''],
+    ['c-', 'ca','cai','cao','can','cang',  'ce','','cen','ceng','',  '','cou','cong',  '','ci',  '','','','','','','','','',  'cu','','','cui','cuo','cuan','','cun','',  '','','',''],
+    ['s-', 'sa','sai','sao','san','sang',  'se','','sen','seng','',  '','sou','song',  '','si',  '','','','','','','','','',  'su','','','sui','suo','suan','','sun','',  '','','',''],
+    ['zh-','zha','zhai','zhao','zhan','zhang',  'zhe','zhei','zhen','zheng','',  '','zhou','zhong',  '','zhi',  '','','','','','','','','',  'zhu','zhua','zhuai','zhui','zhuo','zhuan','zhuang','zhun','',  '','','',''],
+    ['ch-','cha','chai','chao','chan','chang',  'che','','chen','cheng','',  '','chou','chong',  '','chi',  '','','','','','','','','',  'chu','chua','chuai','chui','chuo','chuan','chuang','chun','',  '','','',''],
+    ['sh-','sha','shai','shao','shan','shang',  'she','shei','shen','sheng','',  '','shou','',  '','shi',  '','','','','','','','','',  'shu','shua','shuai','shui','shuo','shuan','shuang','shun','',  '','','',''],
+    ['r-', '','','rao','ran','rang',  're','','ren','reng','',  '','rou','rong',  '','ri',  '','','','','','','','','',  'ru','rua','','rui','ruo','ruan','','run','',  '','','',''],
     ['j-', '','','','','',  '','','','','',  '','','',  'ji','',  'jia','jiao','jie','jiu','jian','jiang','jin','jing','jiong',  '','','','','','','','','',  'ju','jue','juan','jun'],
     ['q-', '','','','','',  '','','','','',  '','','',  'qi','',  'qia','qiao','qie','qiu','qian','qiang','qin','qing','qiong',  '','','','','','','','','',  'qu','que','quan','qun'],
     ['x-', '','','','','',  '','','','','',  '','','',  'xi','',  'xia','xiao','xie','xiu','xian','xiang','xin','xing','xiong',  '','','','','','','','','',  'xu','xue','xuan','xun'],
